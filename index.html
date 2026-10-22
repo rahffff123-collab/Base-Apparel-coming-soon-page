@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
+
+  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+  
+  <title>Frontend Mentor | Base Apparel coming soon page</title>
+
+  <style>
+    *{
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family:monospace ;
+    }
+    body{
+      overflow-x: hidden;
+        background-color: hsl(0, 67%, 94%);
+      background-image: url('images/bg-pattern-desktop.svg');
+      background-size: cover;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      position: relative;
+    }
+    .Header{
+        position: absolute;
+        top: 50px;
+        left: 80px;
+        z-index: 10;
+    }
+    .Card{
+      display: flex;
+      width: 100%;
+      min-height: 100vh;
+      justify-content: space-between;
+      align-items: center;
+    }
+    /*-----------------------------------
+    Left
+    ------------------------------------*/
+    .Left{
+      display: flex;
+      flex-direction: column;
+      max-width: 450px;
+      margin-left:80px ;
+      z-index:2
+    }
+    .title
+    {
+      line-height: 1;
+      letter-spacing: 12px;
+      text-transform: uppercase;
+      font-size: 64px;
+      color: hsl(0, 6%, 24%);
+      margin-bottom: 20px;
+    }
+    .title span{
+      font-weight:lighter ;
+      color:hsl(0, 36%, 70%);
+    }
+    .prograph{
+      color:hsl(0, 36%, 70%);
+      line-height: 1.6;
+      font-size: 14px;
+      margin-bottom: 35px;
+    }
+    /*-----------------------------
+    input style
+    -------------------------------*/
+    .InputEmailContainer{
+      position: relative;
+      display: flex;
+  align-items: center;
+  width: 100%;
+  border: 1px solid hsl(0, 36%, 70%);
+  border-radius: 30px;
+background-color: transparent;
+    }
+    .InputEmailContainer input{
+      border: none;
+      outline: none;
+      width: 100%;
+      padding: 15px 25px;
+      font-size: 14px;
+      background: transparent;
+      color: hsl(0, 6%, 24%);
+    }
+    .InputEmailContainer Input::placeholder{
+      color:  hsl(0, 36%, 70%);
+    }
+    .InputEmailContainer button{
+      
+      background-color: hsl(0, 93%, 68%);
+      border: none;
+      border-radius: 30px;
+      width:70px;
+      height: 48px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: background-color 0.3s;
+      flex-shrink: 0;
+      box-shadow: 0 10px 15px rgba(238, 122, 122, 0.4);
+    }
+    .InputEmailContainer button:hover{
+     background-color: hsl(0, 100%, 74%);
+    }
+    /*------------------------------
+    Error Style
+    --------------------------------*/
+    .errorimg{
+      display: none;
+      position: absolute;
+      right: 85px;
+    }
+    .ErrorText{
+      display: none;
+      color:hsl(0, 93%, 68%);
+      font-size: 12px;
+  font-style: italic;
+  margin-top: 8px;
+  padding-left: 25px;
+    }
+    
+    .InputEmailContainer.error {
+  border: 2px solid hsl(0, 93%, 68%);
+}
+.InputEmailContainer.error .errorimg {
+  display: block;
+}
+.ErrorText.show {
+  display: block;
+}
+    /*----------------------------
+    Right
+    -------------------------------*/
+   .hero{
+    position:absolute;
+    right:0;
+    top:0;
+    height: 100vh;
+    width: 40%;
+    object-fit: cover;
+   }
+   /*-----------------------------
+   Mobile Style
+   -------------------------------*/
+ @media (max-width: 768px) {
+  body {
+    overflow-y: auto;
+    display: block;
+    height: auto;
+  }
+  
+  .Header {
+    position: relative;
+    top: unset;
+    left: unset;
+    padding: 30px 20px 0 20px;
+  }
+  
+  .Card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 20px 0 50px 0;
+  }
+
+
+  .hero {
+    position: static !important;
+    width: 100% !important;
+    height: 280px !important;          /* تحديد الارتفاع لكي لا تكون طويلة جداً */
+    object-fit: cover !important;      /* ملء المساحة بشكل متناسق */
+    object-position: top center !important; /* لضبط التركيز على الوجه ومنع قصه */
+    order:-1 !important;
+    margin-bottom: 30px;
+  }
+
+  .Left {
+    margin: 0 !important;
+    align-items: center;
+    text-align: center;
+    width: 100%;
+    padding: 0 20px;
+  }
+
+  .title {
+    font-size: 36px;
+    letter-spacing: 6px;
+  }
+
+  .prograph {
+    font-size: 13px;
+    margin-bottom: 25px;
+  }
+
+  .InputEmailContainer {
+    max-width: 100%;
+    width: 100%;
+  }
+}
+  
+  </style>
+</head>
+<body>
+  <div class="Header">
+    <img src="images/logo.svg" alt="logo" class="logoimg"/>
+    </div>
+
+ <div class="Card">
+    
+    <form class="Left" id="form">
+      <h1 class="title"><span>We're</span><br> coming<br> soon</h1>
+
+      <p class="prograph">Hello fellow shoppers! We're currently building our new<br> fashion store. 
+      Add your email below to stay up-to-date with<br> announcements and our launch deals.</p>
+
+      <div class="InputEmailContainer">
+        <input type="text" placeholder="Email Address" id="EmailAddress" />
+        <img src="images/icon-error.svg" alt="errorimg" class="errorimg"/>
+        <button type="submit">
+          <img src="images/icon-arrow.svg" alt="arrow"/>
+        </button>
+      </div>
+      <p class="ErrorText">Please provide a valid email</p>
+    </form>
+
+    <!-- [تعديل هام]: جعلنا الصورة عنصراً مستقلاً داخل الـ Card لكي تتقبل الـ order: -1 وتصعد للأعلى -->
+    <img src="images/hero-desktop.jpg" alt="this is hero" class="hero"/>
+
+  </div>
+  <!--
+      <footer class="attribution">
+      Challenge by <a href="https://www.frontendmentor.io?ref=challenge">Frontend Mentor</a>. 
+      Coded by <a href="#">Your Name Here</a>.
+    </footer>
+    -->
+    <script>
+   let form = document.querySelector('form');
+    let input = document.querySelector('#EmailAddress');
+    let container = document.querySelector('.InputEmailContainer');
+    let errorText = document.querySelector('.ErrorText');
+
+    form.addEventListener('submit', function(e) {
+      e.preventDefault();
+      let email = input.value.trim();
+
+      if (email === '' || !email.includes('@') || !email.includes('.')) {
+        container.classList.add('error');
+        errorText.classList.add('show');
+      } else {
+        container.classList.remove('error');
+        errorText.classList.remove('show');
+        alert('Thank you! Subscribed successfully.');
+        input.value = '';
+      }
+    });
+    </script>
+</body>
+</html>
